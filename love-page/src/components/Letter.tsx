@@ -94,7 +94,7 @@ export default function Letter() {
               className=" bg-white p-4 rounded-xl shadow-2xl w-full max-w-md animate-[letter_0.4s_ease-out] ">
               <iframe
                 style={{ borderRadius: '12px' }}
-                src="https://open.spotify.com/embed/playlist/6bt5NGYjGe7HQ85h5AbIDl?utm_source=generator"
+                src="https://open.spotify.com/embed/playlist/4rt0LotXg0ff8F5ZL9pyUh?utm_source=generator"
                 width="100%"
                 height="352"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
