@@ -1,6 +1,45 @@
 import { useState } from "react";
 
 type ModalType = "letter" | "playlist" | null;
+const letterText = `
+Oie, bê! Tudo bem?
+
+Eu não sou muito bom com textos fofos ou algo assim, então vou apenas falando o que vier do coração. Larissa, o que falar sobre você? Para você e sobre como a gente construiu o “nós”. Não conheço palavras suficientes para lhe agradecer por tudo o que nos tornamos e pelo homem que você está me ajudando a me tornar. Talvez eu deva começar pelo começo.
+
+Comecei o ano um tanto quanto desacreditado de muita coisa, com muitas dúvidas sobre quem eu era e o que eu iria fazer com a minha vida. Os últimos anos não foram lá os melhores anos da minha vida. Mas do que eu tenho a reclamar? A maioria da minha família está bem. Perdi minha tia-avó no caminho; esse foi o meu primeiro Natal sem ela e, honestamente, durante o Natal eu nem lembrei dela. Me sinto um lixo por isso.
+
+Em seu funeral, não chorei. Parte de mim diz que foi pelo fato de eu ter conseguido me despedir dela antes de ela partir, e outra parte é porque eu sempre fugi, tentei fugir dos meus sentimentos. Afinal, é mais fácil se esconder deles do que enfrentá-los. E agora você deve estar se perguntando onde você entra nisso.
+
+Depois que eu te conheci, comecei a ser mais honesto comigo, a expressar o que sinto de verdade e a falar sem medo o que está no meu coração. Com você, me sinto seguro para dizer o que se passa aqui, mesmo que às vezes você diga que pesa o clima, conversas “pesadas” são necessárias para relacionamentos duradouros e, bom, nós estamos fechando 2025 já nos preparando para o nosso futuro relacionamento.
+
+Já me deparei muitas vezes com pessoas dizendo que deveriam ter se conhecido antes, mas eu acho que não, nós nos conhecemos no tempo certo. Em meio a tantas coisas da vida, te conheci justamente no ano em que você fez o seu melhor ENEM e que, se Deus quiser, você vai entrar.
+
+Se fosse no ano passado, nosso futuro relacionamento provavelmente não iria acontecer, pois você teria que focar muito mais nos estudos. com você eu sinto vontade de mudar, sinto vontade de simplesmente ser melhor, você me inspira a ser melhor.
+
+Eu jamais imaginaria que estaria às 4:55 da manhã escrevendo uma carta para você e, ainda mais, fazendo um mini site só para você visualizar a carta. E, vey, eu odeio design, e mesmo assim pensei: “Vey, tenho que aprender hoje para fazer algo legal para ela”.
+
+Pô, Maurício, ela te deu um presente de Natal e você não deu nada para ela. Faça alguma coisa enquanto você não compra um presente para ela, pelo amor de Jesus.
+
+Minha psicóloga brincava dizendo: “Maurício, você estava vindo de uma baixa para uma crescente sem precedentes. Você, em pouco tempo, está começando a amadurecer. O efeito da garota certa na vida do garoto certo é real mesmo”. E eu sempre relutava e dizia: “Não, tia, ela já me falou que relacionamento é off para ela”.
+
+E quem diria… hoje eu estou louco para poder te chamar de minha namorada, poder ter um churrasco em família, ir para os aniversários dos seus primos pequenos, conhecer seu tio (kkkkkkkkk), cada vez mais sinto que isso também está virando a sua vontade — e, meu Senhor, como eu sou feliz por isso.
+
+Agradeço todos os dias ao Senhor por ter me dado você como presente, todos os dias você me ensina como ser um filho melhor, um homem melhor, um “namorado” melhor e o cara que te faz sua vida mais feliz (eu acho).
+
+Não acredito em alma gêmea; acredito que eu e você, com o passar do tempo, fomos nos moldando e se encaixando um no outro para que o encaixe ficasse perfeito. Grande parte disso se dá, primeiramente, a Jesus e, segundamente, a nós e às nossas conversas (que nunca falte diálogo entre nós).
+
+Não quero admitir, mas neste momento estou chorando — de felicidade, claro — só de lembrar de todos os momentos que passamos juntos, nossas risadas e suas caras e bocas sempre que eu fazia e faço uma brincadeira, sempre que você me olha e me pergunta o que eu estou pensando, e eu pensando em como vou lhe dizer que eu simplesmente amo-te de todo o coração.
+
+No começo de tudo, eu entrei somente com o pé direito, mas agora eu já me joguei de corpo e alma, porque eu desejo muito fazer da minha vida ímpar tendo você como meu par. Dizer que você fez do meu 2025 melhor é muito simplório, tendo em vista tudo o que passamos juntos.
+
+Você não só tornou meu 2025 melhor como mudou a minha vida. Minha vida agora se divide em antes da Larissa e depois da Larissa (kkkkkkkkkkkk). Eu não espero dividir com você apenas esse 2025, quero dividir todos os próximos anos que vierem pela frente.
+
+Isso está até parecendo uma declaração de amor, né? De certa forma é sim, mas também é uma cartinha de agradecimento pelo presente de Natal e pelo presente que Jesus me deu. Então, muito obrigado, Larissa, por fazer da minha vida e dos meus dias algo tão leve, colorido e bonito. Sem você, nada disso estaria acontecendo. Bem que dizem que o que Deus planejou é perfeito.
+
+Tenho que colocar um assinado? Hmmmm… acho que sim, né?
+Assinado: Mauricio Siqueira Cavalcante Bernardo, vulgo seu bê, amorzinho e boiolinha.
+Brincadeiras à parte, Larissa, amo-te de todo o coração. Estou absurdamente orgulhoso de você e da mulher que você está se tornando. Espero ser digno de presenciar isso de perto e dividir os seus dias comigo. Você é assustadoramente incrível, Sou completamente apaixonado por cada detalhe que forma você. Com amor, Maumau ❤️.
+`;
 
 export default function Letter() {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
@@ -67,109 +106,27 @@ export default function Letter() {
             <div
               onClick={(e) => e.stopPropagation()}
               className="
-                bg-white
-                p-8
+                relative
+                bg-[#fdfbf7]
+                p-10
                 rounded-xl
-                max-w-lg
-                text-center
-                shadow-2xl
-                animate-[letter_0.4s_ease-out]
+                max-w-md
+                shadow-[0_20px_40px_rgba(0,0,0,0.25)]
+                animate-[letterOpen_0.6s_ease-out]
+
+                max-h-[80vh]
+                overflow-y-auto
               "
             >
-              <p className="text-lg leading-relaxed">
-                Oie, bê! Tudo bem?
-                <br />
-                <br />
-                Eu não sou muito bom com textos fofos ou algo assim, então vou
-                apenas falando o que vier do coração. Larissa, o que falar sobre
-                você? Para você e sobre como a gente construiu o “nós”. Não
-                conheço palavras suficientes para lhe agradecer por tudo o que
-                nos tornamos e pelo homem que você está me ajudando a me tornar.
-                Talvez eu deva começar pelo começo. Comecei o ano um tanto
-                quanto desacreditado de muita coisa, com muitas dúvidas sobre
-                quem eu era e o que eu iria fazer com a minha vida. Os últimos
-                anos não foram lá os melhores anos da minha vida. Mas do que eu
-                tenho a reclamar? A maioria da minha família está bem. Perdi
-                minha tia-avó no caminho; esse foi o meu primeiro Natal sem ela
-                e, honestamente, durante o Natal eu nem lembrei dela. Me sinto
-                um lixo por isso. Em seu funeral, não chorei. Parte de mim diz
-                que foi pelo fato de eu ter conseguido me despedir dela antes de
-                ela partir, e outra parte é porque eu sempre fugi, tentei fugir
-                dos meus sentimentos. Afinal, é mais fácil se esconder deles do
-                que enfrentá-los. E agora você deve estar se perguntando onde
-                você entra nisso. Depois que eu te conheci, comecei a ser mais
-                honesto comigo, a expressar o que sinto de verdade e a falar sem
-                medo o que está no meu coração. Com você, me sinto seguro para
-                dizer o que se passa aqui, mesmo que às vezes você diga que pesa
-                o clima. Conversas “pesadas” são necessárias para
-                relacionamentos duradouros e, bom, nós estamos fechando 2025 já
-                nos preparando para o nosso futuro relacionamento. Já me deparei
-                muitas vezes com pessoas dizendo que deveriam ter se conhecido
-                antes, mas eu acho que não. Nós nos conhecemos no tempo certo.
-                Em meio a tantas coisas da vida, te conheci justamente no ano em
-                que você fez o seu melhor ENEM e que, se Deus quiser, você vai
-                entrar. Se fosse no ano passado, nosso futuro relacionamento
-                provavelmente não iria acontecer, pois você teria que focar
-                muito mais nos estudos, e eu era muito mais imaturo e burro do
-                que fui no ano passado — e ainda sou bem burro e imaturo, mas
-                com você é diferente. Eu sinto vontade de mudar, sinto vontade
-                de simplesmente ser melhor. Você me inspira a ser melhor. Eu
-                jamais imaginaria que estaria às 4:55 da manhã escrevendo uma
-                carta para você e, ainda mais, fazendo um mini site só para você
-                visualizar a carta. E, véi, eu odeio design, e mesmo assim
-                pensei: “Véi, tenho que aprender hoje para fazer algo legal para
-                ela”. Pô, Maurício, ela te deu um presente de Natal e você não
-                deu nada para ela. Faça alguma coisa enquanto você não compra um
-                presente para ela, pelo amor de Jesus. Minha psicóloga brincava
-                dizendo: “Maurício, você estava vindo de uma baixa para uma
-                crescente sem precedentes. Você, em pouco tempo, está começando
-                a amadurecer. O efeito da garota certa na vida do garoto certo é
-                real mesmo”. E eu sempre relutava e dizia: “Não, tia, ela já me
-                falou que relacionamento é off para ela”. E quem diria… hoje eu
-                estou louco para poder te chamar de minha namorada, poder ter um
-                churrasco em família, ir para os aniversários dos seus primos
-                pequenos, conhecer seu tio (kkkkkkkkk). E eu cada vez mais sinto
-                que isso também está virando a sua vontade — e, meu Senhor, como
-                eu sou feliz por isso. Agradeço todos os dias ao Senhor por ter
-                me dado você como presente. Você todos os dias me ensina como
-                ser um filho melhor, um homem melhor, um “namorado” melhor e o
-                cara que eu julgo ser o certo para você. Não acredito em alma
-                gêmea; acredito que eu e você, com o passar do tempo, fomos nos
-                moldando e encaixando um no outro para que o encaixe ficasse
-                perfeito. Grande parte disso se dá, primeiramente, a Jesus e,
-                segundamente, a nós e às nossas conversas (que nunca falte
-                diálogo entre nós). Não quero admitir, mas neste momento estou
-                chorando — de felicidade, claro — só de lembrar de todos os
-                momentos que passamos juntos, nossas risadas e suas caras e
-                bocas sempre que eu fazia e faço uma brincadeira, sempre que
-                você me olha e me pergunta o que eu estou pensando. E eu
-                pensando em como vou lhe dizer que eu simplesmente amo-te de
-                todo o coração. No começo de tudo, eu entrei somente com o pé
-                direito, mas agora eu já me joguei de corpo e alma, porque eu
-                desejo muito fazer da minha vida ímpar tendo você como meu par.
-                Dizer que você fez do meu 2025 melhor é muito simplório, tendo
-                em vista tudo o que passamos juntos. Você não só tornou meu 2025
-                melhor como mudou a minha vida. Minha vida agora se divide em
-                antes da Larissa e depois da Larissa (kkkkkkkkkkkk). Eu não
-                espero dividir com você apenas esse 2025, quero dividir todos os
-                próximos anos que vierem pela frente. Isso está até parecendo
-                uma declaração de amor, né? De certa forma é sim, mas também é
-                uma cartinha de agradecimento pelo presente de Natal e pelo
-                presente que Jesus me deu. Então, muito obrigado, Larissa, por
-                fazer da minha vida e dos meus dias algo tão leve, colorido e
-                bonito. Sem você, nada disso estaria acontecendo. Bem que dizem
-                que o que Deus planejou é perfeito.
-                <br />
-                <br />
-                Tenho que colocar um assinado? Hmmmm… acho que sim, né?
-                Assinado: Mauricio Siqueira Cavalcante Bernardo, vulgo seu bê,
-                amorzinho e boiolinha. Brincadeiras à parte, Larissa, amo-te de
-                todo o coração. Estou absurdamente orgulhoso de você e da mulher
-                que você está se tornando. Espero ser digno de presenciar isso
-                de perto e dividir os seus dias comigo. Você é assustadoramente
-                incrível. Sou completamente apaixonado por cada detalhe que
-                forma você. Com amor, Maumau ❤️.
-              </p>
+              <div className="absolute inset-0 pointer-events-none rounded-xl border border-black/5" />
+              <div className="text-base leading-7 text-justify font-serif text-gray-800 space-y-4">
+                {letterText
+                  .trim()
+                  .split("\n\n")
+                  .map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+              </div>
             </div>
           )}
 
